@@ -11,16 +11,14 @@ const app = express();
 app.use(express.json());
 
 app.post("/signup", async (req, res)=>{
-    const parsedData = CreateUserSchema.safeParse(req.body);
-    if(!parsedData.success){
+    const parsedData = CreateUserSchema.safeParse(req.body); 
+    if(!parsedData.success){        // fail cases: incorrect input
         res.json({
             message: "Incorrect inputs"
         })
         return;
     }
-
     
-
     try {
         const pass= parsedData.data?.password;
 
@@ -53,11 +51,12 @@ app.post("/signin", async (req, res)=>{
 
     const password = parseData.data.password;
 
-    const user = await prismaClient.user.findFirst({
+    const user = await prismaClient.user.findUnique({
         where: {
             email: parseData.data.username,
         }
     })
+
     if(!user){
         res.status(403).json({
             message: "user does not exist"
@@ -97,17 +96,21 @@ app.post("/room", middleware, async (req: AuthRequest, res)=>{
     }
 
     const userId =  req.userId;
-
-    const room = await prismaClient.room.create({
-        data : {
-            slug: parsedData.data.name,
-            adminId: userId
-        }
-    })
-
-    res.json({
-        roomId : room.id
-    })
+    try{
+        const room = await prismaClient.room.create({
+            data : {
+                slug: parsedData.data.name,
+                adminId: userId
+            }
+        })
+        res.json({
+            roomId : room.id
+        })
+    } catch (e){
+        res.status(411).json({
+            message : "Room already exitsts"
+        })
+    }
 })
 
 
