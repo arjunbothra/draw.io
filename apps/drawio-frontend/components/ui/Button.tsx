@@ -1,5 +1,6 @@
 import React from 'react';
 
+// React.ButtonHTMLAttributes already includes onClick, onMouseEnter, etc.
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'glow';
   icon?: React.ReactNode;
@@ -24,7 +25,7 @@ export const Button = ({
   return (
     <button 
       className={`inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-medium transition-all duration-200 active:scale-[0.98] text-lg ${variants[variant]} ${className}`} 
-      {...props}
+      {...props} // This automatically passes onClick down to the DOM element
     >
       {children}
       {icon}

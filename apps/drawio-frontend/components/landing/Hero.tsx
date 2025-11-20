@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Icons } from "../icons";
 import { Button } from "../ui/Button";
 import { MagneticButton } from "../ui/MagneticButton";
@@ -37,9 +38,11 @@ export const Hero = () => (
           <MagneticButton variant="glow" className="w-full sm:w-auto h-16 px-10 text-xl" icon={<Icons.ChevronRight className="w-6 h-6" />}>
             Start Drawing Now
           </MagneticButton>
+          <Link href={"https://github.com/arjunbothra/draw.io"}>
           <Button variant="secondary" className="w-full sm:w-auto h-16 px-10 text-xl bg-zinc-900 border-zinc-800" icon={<Icons.Github className="w-6 h-6" />}>
             Star on GitHub
           </Button>
+          </Link>
         </div>
       </Reveal>
 
@@ -53,7 +56,7 @@ export const Hero = () => (
               <div className="w-4 h-4 rounded-full bg-zinc-700/50"></div>
             </div>
             <div className="flex-1 text-center">
-               <span className="text-sm font-mono text-zinc-500">untitled-architecture.draw</span>
+               <span className="text-sm font-mono text-zinc-500">untitled.draw</span>
             </div>
           </div>
 
@@ -68,17 +71,17 @@ export const Hero = () => (
                     </defs>
                     <g transform="translate(50,50)" className="group/node cursor-pointer">
                         <rect width="220" height="120" rx="6" fill="#18181b" stroke="#60a5fa" strokeWidth="3" filter="url(#neon)" className="transition-all group-hover/node:stroke-white"/>
-                        <text x="110" y="65" textAnchor="middle" fill="#60a5fa" className="font-hand text-2xl transition-all group-hover/node:fill-white">Frontend (Next.js)</text>
+                        <text x="110" y="65" textAnchor="middle" fill="#60a5fa" className="font-hand text-2xl transition-all group-hover/node:fill-white">Draw</text>
                     </g>
                     <path d="M 270 110 C 350 110, 350 200, 450 200" stroke="#71717a" strokeWidth="3" fill="none" strokeDasharray="10,5" className="animate-dash" />
                      <g transform="translate(450,150)" className="group/node cursor-pointer">
                         <rect width="220" height="120" rx="6" fill="#18181b" stroke="#a78bfa" strokeWidth="3" filter="url(#neon)" className="transition-all group-hover/node:stroke-white"/>
-                        <text x="110" y="65" textAnchor="middle" fill="#a78bfa" className="font-hand text-2xl transition-all group-hover/node:fill-white">API Gateway</text>
+                        <text x="110" y="65" textAnchor="middle" fill="#a78bfa" className="font-hand text-2xl transition-all group-hover/node:fill-white">Easily</text>
                     </g>
                     <g className="animate-cursor-move transition-transform duration-1000">
                         <path d="M0 0L16 16L22 10L32 36" fill="#ec4899" stroke="white" transform="translate(380, 180)"/>
                         <rect x="26" y="26" width="90" height="30" rx="15" fill="#ec4899" transform="translate(380, 180)"/>
-                        <text x="70" y="47" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" transform="translate(380, 180)">@sarah</text>
+                        <text x="70" y="47" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" transform="translate(380, 180)">@user</text>
                     </g>
                 </svg>
             </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Icons } from "../icons";
 import { Button } from "../ui/Button";
+import Link from "next/link";
 
 
 export const Navbar = () => {
@@ -45,10 +46,14 @@ export const Navbar = () => {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-6">
             {/* Reverted Login Button to Text Style */}
-            <button className="text-xl font-medium text-zinc-400 hover:text-white transition-colors font-hand">
+            <Link href={"/signin"}>
+              <button className="text-xl font-medium text-zinc-400 hover:text-white transition-colors font-hand">
                 Log in
-            </button>
-            <Button variant="primary" className="!py-2 !px-6 !text-lg font-hand">Start Free</Button>
+              </button>
+            </Link>
+            <Link href={"/signup"}>
+              <Button variant="primary" className="!py-2 !px-6 !text-lg font-hand">Start Free</Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
